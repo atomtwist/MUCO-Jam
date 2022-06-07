@@ -1,0 +1,3 @@
+[submodule "packages/com.phenomenalviborg.mucosdk"]
+	path = packages/com.phenomenalviborg.mucosdk
+	url = https://github.com/phenomenalviborg/com.phenomenalviborg.mucosdk.git
