@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GreatFunkConfiguration
   m_EditorClassIdentifier: 
   Name: GreatFunk
-  Description: 
+  Description: SS
   Scene:
     sceneGuid: c49f16212d42e4a819dd63518f679a62
-  LocalUserPrefab: {fileID: 8466323033043974117, guid: 09d460d44b7978740aae0b104a193922, type: 3}
-  RemoteUserPrefab: {fileID: 8466323033043974117, guid: fc832a1110af38e4d86b490cd8561e8c, type: 3}
+  LocalUserPrefab: {fileID: 8466323033043974117, guid: 1757b48a5c51648f5b6ae446c35fefb0, type: 3}
+  RemoteUserPrefab: {fileID: 8466323033043974117, guid: 1ed4ade2075e04253bc928673c5ee9bb, type: 3}
