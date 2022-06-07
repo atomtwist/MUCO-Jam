@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Packages/com.phenomenalviborg.mucosdk/Runtime/Framework/Shared/S_Entry.unity
+    guid: 56e02c62280735f498837d0300d094b1
+  - enabled: 1
+    path: Packages/com.phenomenalviborg.mucosdk/Runtime/Framework/Shared/S_Menu.unity
+    guid: a86ed2feecd8a41498e8dff9b45195b5
   - enabled: 1
     path: Assets/GreatFunk/S_GreatFunk.unity
     guid: c49f16212d42e4a819dd63518f679a62
