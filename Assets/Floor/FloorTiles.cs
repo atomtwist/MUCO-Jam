@@ -34,7 +34,7 @@ public class FloorTiles : MonoBehaviour
         
         tile.SetActive(false);
 
-        cam = Camera.main.transform;
+        //cam = Camera.main.transform;
         //force.SetValue(target != null? target.position : cam.position);
     }
 
