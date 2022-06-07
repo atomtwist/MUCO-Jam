@@ -1,3 +1,4 @@
+using ToyBoxHHH;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,6 +17,7 @@ public class FloorTiles : MonoBehaviour
     private static readonly int Tint      = Shader.PropertyToID("_Tint");
 
 
+    [DebugButton]
     private void Start()
     {
         GameObject tile = transform.GetChild(0).gameObject;
