@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class SmoothFollowHead : MonoBehaviour
 {
-
-
     private Vector3 currentSmoothed;
     private Quaternion currentSmoothedRot;
 
@@ -47,5 +45,4 @@ public class SmoothFollowHead : MonoBehaviour
         transform.position = currentSmoothed;
         transform.rotation = currentSmoothedRot;
     }
-
 }

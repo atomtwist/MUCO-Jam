@@ -6,26 +6,19 @@ using UnityEngine.UI;
 
 public class FPSCounter : Singleton<FPSCounter>
 {
-    [SerializeField]
-    private Text text;
+    [SerializeField] private Text text;
 
-    [SerializeField]
-    private Text profilerText;
+    [SerializeField] private Text profilerText;
 
-    [SerializeField]
-    private Text profilerValue;
+    [SerializeField] private Text profilerValue;
 
-    [SerializeField]
-    private bool cpuProfiling = true;
+    [SerializeField] private bool cpuProfiling = true;
 
-    [SerializeField]
-    private bool renderProfiling = true;
+    [SerializeField] private bool renderProfiling = true;
 
-    [SerializeField]
-    private bool memoryProfiling = true;
+    [SerializeField] private bool memoryProfiling = true;
 
-    [SerializeField]
-    private float updateInterval = 0.5f;
+    [SerializeField] private float updateInterval = 0.5f;
 
     private float m_deltaFps;
     private int m_frames;
@@ -50,13 +43,15 @@ public class FPSCounter : Singleton<FPSCounter>
     private void OnEnable()
     {
         m_timeleft = updateInterval;
-        
+
         const int capacity = 15;
         m_records.cpu = ProfilerRecorder.StartNew(ProfilerCategory.Internal, "PlayerLoop", capacity);
         m_records.vsync = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Gfx.WaitForRenderThread", capacity);
         m_records.cameraRender = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Camera.Render", capacity);
-        m_records.opaqueGeometry = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Render.OpaqueGeometry", capacity);
-        m_records.transparentGeometry = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Render.TransparentGeometry", capacity);
+        m_records.opaqueGeometry =
+            ProfilerRecorder.StartNew(ProfilerCategory.Render, "Render.OpaqueGeometry", capacity);
+        m_records.transparentGeometry =
+            ProfilerRecorder.StartNew(ProfilerCategory.Render, "Render.TransparentGeometry", capacity);
         m_records.imageEffects = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Camera.ImageEffects", capacity);
         m_records.drawCalls = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Draw Calls Count");
         m_records.trianglesCount = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Vertices Count");
@@ -98,12 +93,12 @@ public class FPSCounter : Singleton<FPSCounter>
             {
                 var stats = new StringBuilder(500);
                 var values = new StringBuilder(500);
-                
+
                 if (cpuProfiling)
                 {
                     if (m_records.cpu.Valid && m_records.vsync.Valid)
                     {
-                        stats.AppendLine("CPU");   
+                        stats.AppendLine("CPU");
                         values.AppendLine($"{GetRecorderAvg(m_records.cpu) - GetRecorderAvg(m_records.vsync):F1} ms");
                     }
                 }
@@ -112,13 +107,13 @@ public class FPSCounter : Singleton<FPSCounter>
                 {
                     stats.AppendLine("");
                     values.AppendLine("");
-                    
+
                     if (m_records.cameraRender.Valid)
                     {
-                        stats.AppendLine("Render");   
+                        stats.AppendLine("Render");
                         values.AppendLine($"{GetRecorderAvg(m_records.cameraRender):F1} ms");
                     }
-                    
+
                     if (m_records.opaqueGeometry.Valid)
                     {
                         stats.AppendLine("Opaque");
@@ -154,7 +149,7 @@ public class FPSCounter : Singleton<FPSCounter>
                 {
                     stats.AppendLine("");
                     values.AppendLine("");
-                    
+
                     if (m_records.usedMemory.Valid)
                     {
                         stats.AppendLine("Used Memory");
