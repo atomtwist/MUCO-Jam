@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloverWithLeaves : MonoBehaviour
 {
-    public bool found { get; private set; }
+    public bool found { get; set; }
     public Renderer r;
     public Material unfoundMat;
     public Material foundMat;
