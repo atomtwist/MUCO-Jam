@@ -43,6 +43,8 @@ public class CloverGameplay : MonoBehaviour
     public void CloverScoreUp()
     {
         cloversCurrent++;
+        
+        UpdateScoreFeedback();
     }
 
     public void UpdateScoreFeedback()
