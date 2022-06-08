@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3371,6 +3371,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb02fec37d144496183b4a6344673ee2, type: 3}
+--- !u!4 &409391930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4732381037138103906, guid: bb02fec37d144496183b4a6344673ee2, type: 3}
+  m_PrefabInstance: {fileID: 409391929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &409391931 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4732235613338416912, guid: bb02fec37d144496183b4a6344673ee2, type: 3}
+  m_PrefabInstance: {fileID: 409391929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &409391932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6365247168099194305, guid: bb02fec37d144496183b4a6344673ee2, type: 3}
+  m_PrefabInstance: {fileID: 409391929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &409391933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1162128181678957448, guid: bb02fec37d144496183b4a6344673ee2, type: 3}
+  m_PrefabInstance: {fileID: 409391929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410772531
 GameObject:
   m_ObjectHideFlags: 0
@@ -8208,6 +8228,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1036943578576286083, guid: 5de5d34da43ec48919f969412fa169f8, type: 3}
+      propertyPath: _localPlayer.head
+      value: 
+      objectReference: {fileID: 409391932}
+    - target: {fileID: 1036943578576286083, guid: 5de5d34da43ec48919f969412fa169f8, type: 3}
+      propertyPath: _localPlayer.root
+      value: 
+      objectReference: {fileID: 409391933}
+    - target: {fileID: 1036943578576286083, guid: 5de5d34da43ec48919f969412fa169f8, type: 3}
+      propertyPath: _localPlayer.leftHand
+      value: 
+      objectReference: {fileID: 409391931}
+    - target: {fileID: 1036943578576286083, guid: 5de5d34da43ec48919f969412fa169f8, type: 3}
+      propertyPath: _localPlayer.rightHand
+      value: 
+      objectReference: {fileID: 409391930}
     - target: {fileID: 3418052632651871699, guid: 5de5d34da43ec48919f969412fa169f8, type: 3}
       propertyPath: m_Name
       value: NetworkManager
