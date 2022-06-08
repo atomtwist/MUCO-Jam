@@ -150,9 +150,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399438668049765883, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
       propertyPath: m_Name
-      value: VRInputRoot
+      value: VRInputRoot Clover Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1816054148232404566, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
 --- !u!1 &4543188351292118506 stripped
 GameObject:
