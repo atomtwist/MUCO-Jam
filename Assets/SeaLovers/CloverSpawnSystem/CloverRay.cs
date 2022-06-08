@@ -20,8 +20,10 @@ public class CloverRay : MonoBehaviour
     //private CloverWithLeaves curAimedClover;
     //private float curAimedCloverTimer = 0f;
     public float cloverViewTimeToPick = 3f;
+    public float cloverAlreadyFoundTimeToShine = 0.7f;
 
     List<CloverWithLeaves> toPick = new List<CloverWithLeaves>();
+    List<CloverWithLeaves> toHighlightAlreadyPicked = new List<CloverWithLeaves>();
 
     //List<CloverWithLeaves> toRemove = new List<CloverWithLeaves>();
     private float lastTimeToUpdateRare;
@@ -69,22 +71,36 @@ public class CloverRay : MonoBehaviour
         }
 
         toPick.Clear();
+        toHighlightAlreadyPicked.Clear();
         //toRemove.Clear();
 
         // check timings
         foreach (var clo in cloverTimers)
         {
+            if (clo.Key.found)
+            {
+                if (clo.Value >= cloverAlreadyFoundTimeToShine)
+                {
+                    toHighlightAlreadyPicked.Add(clo.Key);
+                }
+            }
+            else
             if (clo.Value >= cloverViewTimeToPick)
             {
                 toPick.Add(clo.Key);
             }
+            
+        }
+
+        foreach (var p in toHighlightAlreadyPicked)
+        {
+            p.HighlightAlreadyFound();
         }
 
         foreach (var p in toPick)
         {
             p.PickClover();
             cloverTimers.Remove(p);
-            Debug.Log("Found");
         }
 
         //foreach (var p in toRemove)

@@ -212,7 +212,10 @@ MonoBehaviour:
   r: {fileID: 6845259625186588344}
   unfoundMat: {fileID: 2100000, guid: eaa035c2bd803456a81c0b4a4eabcadc, type: 2}
   foundMat: {fileID: 2100000, guid: 0729d572dc300470c921b069f250e550, type: 2}
+  alreadyFoundMat: {fileID: 2100000, guid: 4a78b31f6efb348c8b55dedabd23fb9f, type: 2}
   foundSound: {fileID: 2641770108634911662}
+  alreadyFoundHighlight: 3
+  firstFoundHighlight: 5
 --- !u!1 &4008338998681211730
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +403,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0729d572dc300470c921b069f250e550, type: 2}
+  - {fileID: 2100000, guid: eaa035c2bd803456a81c0b4a4eabcadc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

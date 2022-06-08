@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using ToyBoxHHH;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class CloverGameplay : MonoBehaviour
     // count the clovers and show it somewhere
     public CloverSpawner mainSpawner;
     public int cloversTotal => mainSpawner.fourLeafs;
-    public int cloversCurrent = 0;
+    public int cloversCurrent => mainSpawner.fourLeafSpawnedList.Count(l => l.GetComponent<CloverWithLeaves>().found);
 
     public bool randomize = false;
     public int randomSeed = 1337;
@@ -35,15 +36,13 @@ public class CloverGameplay : MonoBehaviour
             Random.InitState(randomSeed);
         }
 
-        cloversCurrent = 0;
+        //cloversCurrent = 0;
         mainSpawner.ClearAll();
         mainSpawner.SpawnAll();
     }
 
-    public void CloverScoreUp()
-    {
-        cloversCurrent++;
-        
+    public void CloverScoreUpdate()
+    {        
         UpdateScoreFeedback();
     }
 

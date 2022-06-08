@@ -8,12 +8,21 @@ public class CloverWithLeaves : MonoBehaviour
     public Renderer r;
     public Material unfoundMat;
     public Material foundMat;
+    public Material alreadyFoundMat;
     public AudioSource foundSound;
 
+    public float alreadyFoundHighlight = 3f;
+    public float firstFoundHighlight = 5f;
+    
     // maybe hands highlight it..?
     public void Highlight()
     {
         r.sharedMaterial = foundMat;
+        StopAllCoroutines();
+        StartCoroutine(pTween.Wait(firstFoundHighlight, () =>
+        {
+            r.sharedMaterial = unfoundMat;
+        }));
     }
 
     public void Unhighlight()
@@ -21,19 +30,29 @@ public class CloverWithLeaves : MonoBehaviour
         r.sharedMaterial = unfoundMat;
     }
 
+    public void HighlightAlreadyFound()
+    {
+        r.sharedMaterial = alreadyFoundMat;
+        StopAllCoroutines();
+        StartCoroutine(pTween.Wait(alreadyFoundHighlight, () =>
+        {
+            r.sharedMaterial = unfoundMat;
+        }));
+    }
+
     public void PickClover()
     {
+        CloverGameplay.instance.CloverScoreUpdate();
+
+        // destroy?
+        Highlight();
+
         if (!found)
         {
-            found = true;
-
-            CloverGameplay.instance.CloverScoreUp();
-
-            // destroy?
-            Highlight();
-
             foundSound.Play();
-
         }
+        
+        found = true;
+
     }
 }
