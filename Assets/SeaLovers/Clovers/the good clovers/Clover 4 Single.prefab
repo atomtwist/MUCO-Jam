@@ -215,7 +215,7 @@ MonoBehaviour:
   alreadyFoundMat: {fileID: 2100000, guid: 4a78b31f6efb348c8b55dedabd23fb9f, type: 2}
   foundSound: {fileID: 2641770108634911662}
   alreadyFoundHighlight: 3
-  firstFoundHighlight: 5
+  firstFoundHighlight: 7
 --- !u!1 &4008338998681211730
 GameObject:
   m_ObjectHideFlags: 0

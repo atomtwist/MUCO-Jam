@@ -32,6 +32,9 @@ public class CloverWithLeaves : MonoBehaviour
 
     public void HighlightAlreadyFound()
     {
+        if (r.sharedMaterial == foundMat)
+            return;
+        
         r.sharedMaterial = alreadyFoundMat;
         StopAllCoroutines();
         StartCoroutine(pTween.Wait(alreadyFoundHighlight, () =>
@@ -42,8 +45,6 @@ public class CloverWithLeaves : MonoBehaviour
 
     public void PickClover()
     {
-        CloverGameplay.instance.CloverScoreUpdate();
-
         // destroy?
         Highlight();
 
@@ -53,6 +54,8 @@ public class CloverWithLeaves : MonoBehaviour
         }
         
         found = true;
+
+        CloverGameplay.instance.CloverScoreUpdate();
 
     }
 }
