@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: ApplicationConfiguration
   m_EditorClassIdentifier: 
   EntryScene:
-    sceneGuid: 56e02c62280735f498837d0300d094b1
+    sceneGuid: f13630614b64c4d0680dc41e342b7429
   MenuScene:
-    sceneGuid: a86ed2feecd8a41498e8dff9b45195b5
+    sceneGuid: be2abe5fc4ca64ff587a2c53fd805b0a
   ExperienceConfigurations:
   - {fileID: 11400000, guid: 5cd50a2f92dd84019a1e50dcb1cb501e, type: 2}
   AdminNodeTag: Admin
   UserNodeTag: User
-  ManualInitialization: 0
+  ManualInitialization: 1
   OfflineMode: 0
   UseStaticServerInfo: 1
   ServerAddress: 192.168.1.7
-  ServerPort: 4960
+  ServerPort: 4961

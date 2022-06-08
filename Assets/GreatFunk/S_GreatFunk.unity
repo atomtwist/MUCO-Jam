@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2943,7 +2943,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1730101198947080957, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7395794454535882733, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
       propertyPath: m_RootOrder
@@ -2993,7 +2993,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRInputRoot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 132819364999142258, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
 --- !u!1 &245926125
 GameObject:
@@ -15225,6 +15226,45 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629138900}
   m_Mesh: {fileID: -89072091244866219, guid: 7a2dcf2aa0fdc4e2f83507cfeeaaa267, type: 3}
+--- !u!1 &1675466240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7399438668049765883, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+  m_PrefabInstance: {fileID: 245542531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1675466241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675466240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510d2bfc81a537743aaf83b6b97db75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SupportedUsbDeviceTypes:
+  - vid:
+      value: 12855
+    pid: 0
+    pidMask: 0
+  SupportedIpDevices: []
+  DeviceNetworkChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1675466242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675466240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdb411146a256e49b5f3a70242191a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnvironmentCode: AntilatencyAltEnvironmentHorizontalGrid~AgAQHLhTiT_cRqA-r45jvZqZmT4AAAAAAAAAAACamRk_AUYICgAADAMAFQMGFwENFAMGDwMCDwICDAEMAgAPCgMEFgEIDAIHBQMEGQAAGAELFQEMGwAMBgADAAIMBAAKBwMLGAECGwIPEgMMEAAEDwMEAgIABwMKEQAPFgMHAAIDFAIJGwIIGQAIBwELCQEFFAMJFAELDgAAAgMHFAEFBQMCCQINDAMIFwAPDgMHAgIFGwAJAgMKDAAJBAACBAIDEgIPBgMIDgAAEQMGCAEEBwELEwINFwENCAELAAAGEQIPGQEDBgIPAgMIEQMCFwEFDAIECgA
 --- !u!1 &1684119535
 GameObject:
   m_ObjectHideFlags: 0
