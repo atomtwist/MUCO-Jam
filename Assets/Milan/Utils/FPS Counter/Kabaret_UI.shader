@@ -2,141 +2,140 @@
 // Available at the Unity Asset Store - http://u3d.as/y3X 
 Shader "Kabaret/UI"
 {
-	Properties
-	{
-		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
-		_Color ("Tint", Color) = (1,1,1,1)
-		
-		_StencilComp ("Stencil Comparison", Float) = 8
-		_Stencil ("Stencil ID", Float) = 0
-		_StencilOp ("Stencil Operation", Float) = 0
-		_StencilWriteMask ("Stencil Write Mask", Float) = 255
-		_StencilReadMask ("Stencil Read Mask", Float) = 255
+    Properties
+    {
+        [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
+        _Color ("Tint", Color) = (1,1,1,1)
 
-		_ColorMask ("Color Mask", Float) = 15
+        _StencilComp ("Stencil Comparison", Float) = 8
+        _Stencil ("Stencil ID", Float) = 0
+        _StencilOp ("Stencil Operation", Float) = 0
+        _StencilWriteMask ("Stencil Write Mask", Float) = 255
+        _StencilReadMask ("Stencil Read Mask", Float) = 255
 
-		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
-		
-	}
+        _ColorMask ("Color Mask", Float) = 15
 
-	SubShader
-	{
-		LOD 0
+        [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
 
-		Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
-		
-		Stencil
-		{
-			Ref [_Stencil]
-			ReadMask [_StencilReadMask]
-			WriteMask [_StencilWriteMask]
-			CompFront [_StencilComp]
-			PassFront [_StencilOp]
-			FailFront Keep
-			ZFailFront Keep
-			CompBack Always
-			PassBack Keep
-			FailBack Keep
-			ZFailBack Keep
-		}
+    }
+
+    SubShader
+    {
+        LOD 0
+
+        Tags
+        {
+            "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True"
+        }
+
+        Stencil
+        {
+            Ref [_Stencil]
+            ReadMask [_StencilReadMask]
+            WriteMask [_StencilWriteMask]
+            CompFront [_StencilComp]
+            PassFront [_StencilOp]
+            FailFront Keep
+            ZFailFront Keep
+            CompBack Always
+            PassBack Keep
+            FailBack Keep
+            ZFailBack Keep
+        }
 
 
-		Cull Off
-		Lighting Off
-		ZWrite Off
-		ZTest Always
-		Blend SrcAlpha OneMinusSrcAlpha
-		ColorMask [_ColorMask]
+        Cull Off
+        Lighting Off
+        ZWrite Off
+        ZTest Always
+        Blend SrcAlpha OneMinusSrcAlpha
+        ColorMask [_ColorMask]
 
-		
-		Pass
-		{
-			Name "Default"
-		CGPROGRAM
-			
-			#ifndef UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX
-			#define UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input)
-			#endif
-			#pragma vertex vert
-			#pragma fragment frag
-			#pragma target 3.0
 
-			#include "UnityCG.cginc"
-			#include "UnityUI.cginc"
+        Pass
+        {
+            Name "Default"
+            CGPROGRAM
+            #ifndef UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX
+            #define UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input)
+            #endif
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma target 3.0
 
-			#pragma multi_compile __ UNITY_UI_CLIP_RECT
-			#pragma multi_compile __ UNITY_UI_ALPHACLIP
-			
-			
-			
-			struct appdata_t
-			{
-				float4 vertex   : POSITION;
-				float4 color    : COLOR;
-				float2 texcoord : TEXCOORD0;
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				
-			};
+            #include "UnityCG.cginc"
+            #include "UnityUI.cginc"
 
-			struct v2f
-			{
-				float4 vertex   : SV_POSITION;
-				fixed4 color    : COLOR;
-				half2 texcoord  : TEXCOORD0;
-				float4 worldPosition : TEXCOORD1;
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				UNITY_VERTEX_OUTPUT_STEREO
-				
-			};
-			
-			uniform fixed4 _Color;
-			uniform fixed4 _TextureSampleAdd;
-			uniform float4 _ClipRect;
-			uniform sampler2D _MainTex;
-			
-			
-			v2f vert( appdata_t IN  )
-			{
-				v2f OUT;
-				UNITY_SETUP_INSTANCE_ID( IN );
+            #pragma multi_compile __ UNITY_UI_CLIP_RECT
+            #pragma multi_compile __ UNITY_UI_ALPHACLIP
+
+
+            struct appdata_t
+            {
+                float4 vertex : POSITION;
+                float4 color : COLOR;
+                float2 texcoord : TEXCOORD0;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+                fixed4 color : COLOR;
+                half2 texcoord : TEXCOORD0;
+                float4 worldPosition : TEXCOORD1;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+                UNITY_VERTEX_OUTPUT_STEREO
+            };
+
+            uniform fixed4 _Color;
+            uniform fixed4 _TextureSampleAdd;
+            uniform float4 _ClipRect;
+            uniform sampler2D _MainTex;
+
+
+            v2f vert(appdata_t IN)
+            {
+                v2f OUT;
+                UNITY_SETUP_INSTANCE_ID(IN);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT);
-				UNITY_TRANSFER_INSTANCE_ID(IN, OUT);
-				OUT.worldPosition = IN.vertex;
-				
-				
-				OUT.worldPosition.xyz +=  float3( 0, 0, 0 ) ;
-				OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
+                UNITY_TRANSFER_INSTANCE_ID(IN, OUT);
+                OUT.worldPosition = IN.vertex;
 
-				OUT.texcoord = IN.texcoord;
-				
-				OUT.color = IN.color * _Color;
-				return OUT;
-			}
 
-			fixed4 frag(v2f IN  ) : SV_Target
-			{
-				UNITY_SETUP_INSTANCE_ID( IN );
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( IN );
+                OUT.worldPosition.xyz += float3(0, 0, 0);
+                OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
 
-				
-				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				
-				#ifdef UNITY_UI_CLIP_RECT
+                OUT.texcoord = IN.texcoord;
+
+                OUT.color = IN.color * _Color;
+                return OUT;
+            }
+
+            fixed4 frag(v2f IN) : SV_Target
+            {
+                UNITY_SETUP_INSTANCE_ID(IN);
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
+
+
+                half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
+
+                #ifdef UNITY_UI_CLIP_RECT
                 color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
                 #endif
-				
-				#ifdef UNITY_UI_ALPHACLIP
-				clip (color.a - 0.001);
-				#endif
 
-				return color;
-			}
-		ENDCG
-		}
-	}
-	CustomEditor "ASEMaterialInspector"
-	
-	
+                #ifdef UNITY_UI_ALPHACLIP
+				clip (color.a - 0.001);
+                #endif
+
+                return color;
+            }
+            ENDCG
+        }
+    }
+    CustomEditor "ASEMaterialInspector"
+
+
 }
 /*ASEBEGIN
 Version=18935

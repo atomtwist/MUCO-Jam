@@ -3,16 +3,14 @@ using System.Collections;
 
 namespace ATVR
 {
-
-
     public enum Button
     {
-        System, 
-        ButtonTwo, 
-        Grip, 
-        Joystick, 
-        Trigger, 
-        ButtonOne, 
+        System,
+        ButtonTwo,
+        Grip,
+        Joystick,
+        Trigger,
+        ButtonOne,
     }
 
 
@@ -45,9 +43,11 @@ namespace ATVR
     {
         static VRInput()
         {
-            if(Application.isPlaying  && PlayerPrefs.HasKey("ANIMVR_HANDEDNESS"))
+            if (Application.isPlaying && PlayerPrefs.HasKey("ANIMVR_HANDEDNESS"))
             {
-                Handedness = PlayerPrefs.GetString("ANIMVR_HANDEDNESS") == "Left" ? Handedness.LeftHanded : Handedness.RightHanded;
+                Handedness = PlayerPrefs.GetString("ANIMVR_HANDEDNESS") == "Left"
+                    ? Handedness.LeftHanded
+                    : Handedness.RightHanded;
             }
             else
             {
@@ -55,8 +55,10 @@ namespace ATVR
             }
         }
 
-        public static bool isOculus {
-            get {
+        public static bool isOculus
+        {
+            get
+            {
                 //this needs to be properlz implemented
                 return true;
             }
@@ -64,8 +66,15 @@ namespace ATVR
 
         public static Handedness Handedness { get; private set; }
 
-        public static VRController SecondaryHand { get { return Handedness == Handedness.RightHanded ? LeftHand : RightHand; } }
-        public static VRController PrimaryHand { get { return Handedness == Handedness.RightHanded ? RightHand : LeftHand; } }
+        public static VRController SecondaryHand
+        {
+            get { return Handedness == Handedness.RightHanded ? LeftHand : RightHand; }
+        }
+
+        public static VRController PrimaryHand
+        {
+            get { return Handedness == Handedness.RightHanded ? RightHand : LeftHand; }
+        }
 
         public static VRController LeftHand { get; set; }
         public static VRController RightHand { get; set; }
@@ -76,11 +85,14 @@ namespace ATVR
         public static Transform PrimarySmoothed;
         public static Transform HeadSmoothed;
 
-        public static Transform GetSmooth(Hand hand) { return hand == Hand.Primary ? PrimarySmoothed : SecondarySmoothed; }
+        public static Transform GetSmooth(Hand hand)
+        {
+            return hand == Hand.Primary ? PrimarySmoothed : SecondarySmoothed;
+        }
 
         public static Hand PhysicalToLogical(PhysicalHand hand)
         {
-            if(Handedness == Handedness.RightHanded)
+            if (Handedness == Handedness.RightHanded)
             {
                 return hand == PhysicalHand.Left ? Hand.Secondary : Hand.Primary;
             }
@@ -103,8 +115,8 @@ namespace ATVR
             else if (hand == Hand.Primary)
                 return VRInput.PrimaryHand;
             return null;
-        }  
-        
+        }
+
         public static VRController GetOpposite(Hand hand)
         {
             if (hand == Hand.Secondary)
@@ -113,19 +125,23 @@ namespace ATVR
                 return VRInput.SecondaryHand;
             return null;
         }
-        
-        public static Vector3 GetControllerCentroid() {
-            return (VRInput.SecondaryHand.transform.localPosition+ VRInput.PrimaryHand.transform.localPosition) / 2.0f;
+
+        public static Vector3 GetControllerCentroid()
+        {
+            return (VRInput.SecondaryHand.transform.localPosition + VRInput.PrimaryHand.transform.localPosition) / 2.0f;
         }
 
-        public static Quaternion GetControllerOrientation() {
+        public static Quaternion GetControllerOrientation()
+        {
             Vector3 direction = VRInput.RightHand.transform.position - VRInput.LeftHand.transform.position;
             Vector3 up = (VRInput.LeftHand.transform.forward + VRInput.RightHand.transform.forward) / 2.0f;
             return Quaternion.LookRotation(direction, up);
         }
 
-        public static float GetControllerDistance() {
-            return Vector3.Distance(VRInput.SecondaryHand.transform.localPosition, VRInput.PrimaryHand.transform.localPosition);
+        public static float GetControllerDistance()
+        {
+            return Vector3.Distance(VRInput.SecondaryHand.transform.localPosition,
+                VRInput.PrimaryHand.transform.localPosition);
         }
     }
 }

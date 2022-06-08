@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmoothFollowController : MonoBehaviour {
-
+public class SmoothFollowController : MonoBehaviour
+{
     public Hand Hand;
 
     private Vector3 currentSmoothed;
@@ -21,7 +21,7 @@ public class SmoothFollowController : MonoBehaviour {
     public void LateUpdate()
     {
         var handTransform = VRInput.Get(Hand).transform;
-        if(handTransform != lastHandTransform)
+        if (handTransform != lastHandTransform)
         {
             lastHandTransform = handTransform;
             transform.position = handTransform.position;
@@ -48,5 +48,4 @@ public class SmoothFollowController : MonoBehaviour {
         transform.position = currentSmoothed;
         transform.rotation = currentSmoothedRot;
     }
-
 }

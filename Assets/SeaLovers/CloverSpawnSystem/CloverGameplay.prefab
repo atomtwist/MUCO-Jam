@@ -787,6 +787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSpawner: {fileID: 1111987473}
   cloversCurrent: 0
+  randomize: 0
+  randomSeed: 1337
   scoreText: {fileID: 2323945020755554720}
 --- !u!1 &2323945020364741480
 GameObject:

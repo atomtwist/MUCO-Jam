@@ -2,47 +2,49 @@
 // Available at the Unity Asset Store - http://u3d.as/y3X 
 Shader "Kabaret/Skybox"
 {
-	Properties
-	{
-		_Color("Color", Color) = (1,1,1,1)
-		[NoScaleOffset]_MainTex("Main Tex", CUBE) = "white" {}
-		[Enum(UnityEngine.Rendering.CullMode)]_CullMode("Cull Mode", Int) = 2
-		[HideInInspector] __dirty( "", Int ) = 1
-	}
+    Properties
+    {
+        _Color("Color", Color) = (1,1,1,1)
+        [NoScaleOffset]_MainTex("Main Tex", CUBE) = "white" {}
+        [Enum(UnityEngine.Rendering.CullMode)]_CullMode("Cull Mode", Int) = 2
+        [HideInInspector] __dirty( "", Int ) = 1
+    }
 
-	SubShader
-	{
-		Tags{ "RenderType" = "Opaque"  "Queue" = "Background+0" "IgnoreProjector" = "True" "IsEmissive" = "true"  }
-		Cull [_CullMode]
-		ZWrite Off
-		ZTest LEqual
-		CGPROGRAM
-		#pragma target 3.0
-		#pragma exclude_renderers xboxseries playstation switch nomrt 
-		#pragma surface surf Unlit keepalpha noshadow noambient novertexlights nolightmap  nodynlightmap nodirlightmap nofog nometa noforwardadd 
-		struct Input
-		{
-			float3 viewDir;
-		};
+    SubShader
+    {
+        Tags
+        {
+            "RenderType" = "Opaque" "Queue" = "Background+0" "IgnoreProjector" = "True" "IsEmissive" = "true"
+        }
+        Cull [_CullMode]
+        ZWrite Off
+        ZTest LEqual
+        CGPROGRAM
+        #pragma target 3.0
+        #pragma exclude_renderers xboxseries playstation switch nomrt
+        #pragma surface surf Unlit keepalpha noshadow noambient novertexlights nolightmap  nodynlightmap nodirlightmap nofog nometa noforwardadd
+        struct Input
+        {
+            float3 viewDir;
+        };
 
-		uniform int _CullMode;
-		uniform samplerCUBE _MainTex;
-		uniform float4 _Color;
+        uniform int _CullMode;
+        uniform samplerCUBE _MainTex;
+        uniform float4 _Color;
 
-		inline half4 LightingUnlit( SurfaceOutput s, half3 lightDir, half atten )
-		{
-			return half4 ( 0, 0, 0, s.Alpha );
-		}
+        inline half4 LightingUnlit(SurfaceOutput s, half3 lightDir, half atten)
+        {
+            return half4(0, 0, 0, s.Alpha);
+        }
 
-		void surf( Input i , inout SurfaceOutput o )
-		{
-			o.Emission = ( texCUBE( _MainTex, -i.viewDir ) * _Color ).rgb;
-			o.Alpha = 1;
-		}
-
-		ENDCG
-	}
-	CustomEditor "ASEMaterialInspector"
+        void surf(Input i, inout SurfaceOutput o)
+        {
+            o.Emission = (texCUBE(_MainTex, -i.viewDir) * _Color).rgb;
+            o.Alpha = 1;
+        }
+        ENDCG
+    }
+    CustomEditor "ASEMaterialInspector"
 }
 /*ASEBEGIN
 Version=18935

@@ -19,7 +19,10 @@ public class VRController : MonoBehaviour
     public PhysicalHand hand;
     public bool useAvatar;
 
-    public Transform smoothTransform { get { return VRInput.GetSmooth(VRInput.PhysicalToLogical(hand)) ?? transform; } }
+    public Transform smoothTransform
+    {
+        get { return VRInput.GetSmooth(VRInput.PhysicalToLogical(hand)) ?? transform; }
+    }
 
     //register controllers with the static input class
     public void Awake()
@@ -77,26 +80,20 @@ public class VRController : MonoBehaviour
         {
             rotDelta = Quaternion.Inverse(oldControllerRot) * transform.rotation;
         }
+
         oldControllerRot = transform.rotation;
     }
 
 
-
-
     void Update()
     {
-
-        
-        
         ControllerDelta();
 
 
         if (useAvatar)
         {
-     
             isTracking = UpdateVelocity(GetXRNodeHand(), ref oldVelocity);
             isTracking |= UpdateAngularVelocity(GetXRNodeHand(), ref oldAngularVelocity);
-
         }
         else
         {
@@ -105,12 +102,12 @@ public class VRController : MonoBehaviour
             transform.position = oldControllerPos;
             transform.rotation = oldControllerRot;
         }
+
         Late();
     }
 
     private static bool UpdateAngularVelocity(XRNode node, ref Vector3 angularVelocity)
     {
-
         //pos rot vel
         List<XRNodeState> nodeStates = new List<XRNodeState>();
         InputTracking.GetNodeStates(nodeStates);
@@ -163,7 +160,6 @@ public class VRController : MonoBehaviour
     // Given an XRNode, get the current position & rotation. If it's not tracking, don't modify the position & rotation.
     private static bool UpdatePose(XRNode node, ref Vector3 position, ref Quaternion rotation, ref Vector3 velocity)
     {
-
         //pos rot vel
         List<XRNodeState> nodeStates = new List<XRNodeState>();
         InputTracking.GetNodeStates(nodeStates);
@@ -199,7 +195,8 @@ public class VRController : MonoBehaviour
 
     XRNode GetXRNodeHand()
     {
-        return hand == PhysicalHand.Left ? XRNode.LeftHand : XRNode.RightHand; ;
+        return hand == PhysicalHand.Left ? XRNode.LeftHand : XRNode.RightHand;
+        ;
     }
 
     InputDevice GetXRDevice()
@@ -216,7 +213,6 @@ public class VRController : MonoBehaviour
         {Button.Joystick, false},
         {Button.Trigger, false},
         {Button.Grip, false},
-
     };
 
     //update dictionary at end of frame
@@ -229,7 +225,7 @@ public class VRController : MonoBehaviour
         lastButtonStates[Button.Grip] = GetXRDeviceButtonState(Button.Grip);
         lastButtonStates[Button.ButtonOne] = GetXRDeviceButtonState(Button.ButtonOne);
     }
-    
+
     private bool GetButtonState(Button button, ButtonPressType pressType)
     {
         bool currentButton = GetXRDeviceButtonState(button);
@@ -240,15 +236,14 @@ public class VRController : MonoBehaviour
             {
                 return true;
             }
-
         }
+
         if (pressType == ButtonPressType.PressUp)
         {
             if (lastButtonStates[button] && currentButton == false)
             {
                 return true;
             }
-
         }
 
         if (pressType == ButtonPressType.Pressed)
@@ -257,7 +252,6 @@ public class VRController : MonoBehaviour
         }
 
         return false;
-
     }
 
     bool GetXRDeviceButtonState(Button button)
@@ -339,9 +333,8 @@ public class VRController : MonoBehaviour
             ang = 360 - ang;
 
         int quadrant = Mathf.Clamp(Mathf.FloorToInt(ang / 360 * 4), 0, 3);
-        return (AxisArea)(quadrant + 1);
+        return (AxisArea) (quadrant + 1);
     }
-
 
 
     public Vector3 GetVelocity()

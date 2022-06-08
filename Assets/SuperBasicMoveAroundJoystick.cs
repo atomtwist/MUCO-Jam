@@ -36,11 +36,11 @@ namespace Assets.Horatiu
             {
                 fwddd.y = 0f;
             }
+
             fwddd = fwddd.normalized * axis.y;
 
             var dir = (fwddd + rightttt) * Time.deltaTime * moveSpeed;
             playerToMove.transform.position += dir;
-
         }
     }
 }
