@@ -8,10 +8,14 @@ public class CloverSpawner : MonoBehaviour
     public GameObject bigCloverPatchPrefab;
     public List<GameObject> bigCloverPatchSpawnedList = new List<GameObject>();
     public Transform bigCloverPatchParent;
+    public Vector2 bigCloverPatchScaleRange = new Vector2(0.9f, 1.1f);
 
     public GameObject fourLeafPrefab;
     public List<GameObject> fourLeafSpawnedList = new List<GameObject>();
     public Transform fourLeafParent;
+    public Vector2 fourLeafScaleRange = new Vector2(0.7f, 1.3f);
+
+    public List<CloverSpawner> subSpawners = new List<CloverSpawner>();
 
     [Space]
     public int fourLeafs = 7;
@@ -21,9 +25,28 @@ public class CloverSpawner : MonoBehaviour
 
     public int equalDistributionMonteCarlo = 10;
 
+    private void OnValidate()
+    {
+        RefreshSubSpawners();
+        
+    }
+
+    [DebugButton]
+    private void RefreshSubSpawners()
+    {
+        subSpawners.Clear();
+        subSpawners.AddRange(GetComponentsInChildren<CloverSpawner>());
+        subSpawners.Remove(this);
+        SetDirtyMe();
+    }
+
     [DebugButton]
     public void ClearAll()
     {
+        for (int i = 0; i < subSpawners.Count; i++)
+        {
+            subSpawners[i].ClearAll();
+        }
         for (int i = 0; i < bigCloverPatchSpawnedList.Count; i++)
         {
             if (Application.isPlaying)
@@ -52,9 +75,10 @@ public class CloverSpawner : MonoBehaviour
 
     }
 
-    public GameObject Spawn(GameObject prefab, List<GameObject> list, Transform parent, Vector3 pos, Quaternion rot)
+    public GameObject Spawn(GameObject prefab, List<GameObject> list, Transform parent, Vector3 pos, Quaternion rot, Vector2 scaleRange)
     {
         var p = Instantiate(prefab, pos, rot, parent);
+        p.transform.localScale *= scaleRange.Random();
         list.Add(p);
         return p;
 
@@ -66,16 +90,25 @@ public class CloverSpawner : MonoBehaviour
         for (int i = 0; i < fourLeafs; i++)
         {
             var pos = GetPosFurthestFromObjects(fourLeafSpawnedList);
-            Spawn(fourLeafPrefab, fourLeafSpawnedList, fourLeafParent, pos, Quaternion.Euler(0, Random.Range(0, 360f), 0));
+            Spawn(fourLeafPrefab, fourLeafSpawnedList, fourLeafParent, pos, Quaternion.Euler(0, Random.Range(0, 360f), 0), fourLeafScaleRange);
 
         }
 
         for (int i = 0; i < bigPatches; i++)
         {
             var pos = GetPosFurthestFromObjects(bigCloverPatchSpawnedList);
-            Spawn(bigCloverPatchPrefab, bigCloverPatchSpawnedList, bigCloverPatchParent, pos, Quaternion.Euler(0, Random.Range(0, 360), 0));
+            Spawn(bigCloverPatchPrefab, bigCloverPatchSpawnedList, bigCloverPatchParent, pos, Quaternion.Euler(0, Random.Range(0, 360), 0), bigCloverPatchScaleRange);
         }
 
+        for (int i = 0; i < subSpawners.Count; i++)
+        {
+            subSpawners[i].SpawnAll();
+        }
+        SetDirtyMe();
+    }
+
+    private void SetDirtyMe()
+    {
 
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(this);
