@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class CloverWithLeaves : MonoBehaviour
 {
     public bool found { get; set; }
+    private bool prevFound;
     public Renderer r;
     public Material unfoundMat;
     public Material foundMat;
@@ -43,19 +45,25 @@ public class CloverWithLeaves : MonoBehaviour
         }));
     }
 
+    private void Update()
+    {
+        // check for found so we can play the sound
+        if (prevFound != found)
+        {
+            prevFound = found;
+            if (found)
+            {
+                foundSound.Play();
+            }
+        }
+    }
+
     public void PickClover()
     {
         // destroy?
         Highlight();
 
-        if (!found)
-        {
-            foundSound.Play();
-        }
-        
         found = true;
-
-        CloverGameplay.instance.CloverScoreUpdate();
-
+        
     }
 }

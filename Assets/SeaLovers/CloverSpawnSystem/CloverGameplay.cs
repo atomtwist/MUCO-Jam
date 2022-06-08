@@ -19,13 +19,21 @@ public class CloverGameplay : MonoBehaviour
 
     public bool randomize = false;
     public int randomSeed = 1337;
-
+    
     [Header("Score Feedback")] public TextMeshProUGUI scoreText;
     // maybe each player can pick clovers...?!?!
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        // update every 10 frames ;)
+        if (Time.frameCount % 10 == 0)
+            UpdateScoreFeedback();
+        
     }
 
     [DebugButton]
@@ -39,11 +47,6 @@ public class CloverGameplay : MonoBehaviour
         //cloversCurrent = 0;
         mainSpawner.ClearAll();
         mainSpawner.SpawnAll();
-    }
-
-    public void CloverScoreUpdate()
-    {        
-        UpdateScoreFeedback();
     }
 
     public void UpdateScoreFeedback()
