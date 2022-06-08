@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5cd50a2f92dd84019a1e50dcb1cb501e, type: 2}
   AdminNodeTag: Admin
   UserNodeTag: User
-  ManualInitialization: 0
+  ManualInitialization: 1
   OfflineMode: 0
   UseStaticServerInfo: 1
   ServerAddress: 192.168.1.7

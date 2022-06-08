@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using ToyBoxHHH;
 using UnityEngine;
 
 public class CloverGameplay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    // count the clovers and show it somewhere
+    public CloverSpawner mainSpawner;
+    public int cloversTotal => mainSpawner.fourLeafs;
+    public int cloversCurrent = 0;
+    
+    [Header("Score Feedback")] 
+    public TextMeshProUGUI scoreText;
+    // maybe each player can pick clovers...?!?!
+
+    [DebugButton]
+    public void Restart()
     {
-        
+        cloversCurrent = 0;
+        mainSpawner.ClearAll();
+        mainSpawner.SpawnAll();
+    }
+    
+    public void PickClover()
+    {
+        cloversCurrent++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateScoreFeedback()
     {
-        
+        scoreText.text = cloversCurrent + "/" + cloversTotal;
     }
+    
 }
