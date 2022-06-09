@@ -6954,10 +6954,10 @@ MonoBehaviour:
     m_Bits: 4294967295
   anamorphicRatio: 0
   bloomThreshold:
-    minValue: 0.31301245
-    maxValue: 10
-  bloomScattering: 7
-  bloomIntensity: 2.34
+    minValue: 0.40671122
+    maxValue: 10.000001
+  bloomScattering: 7.89
+  bloomIntensity: 1.7
   allowLensSurface: 0
   lensSurfaceDirtTexture: {fileID: 0}
   lensSurfaceDirtIntensity: 2.5
