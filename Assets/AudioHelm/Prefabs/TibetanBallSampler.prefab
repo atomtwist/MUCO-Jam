@@ -52,7 +52,7 @@ MonoBehaviour:
     maxKey: 127
     minVelocity: 0
     maxVelocity: 1
-    lastScheduled: 0
+    lastScheduled: 482.208798185941
   keyzonePlayMode: 0
   velocityTracking: 1
   numVoices: 8
@@ -70,7 +70,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7473e27e47d6dbb4893ee93992c19330, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.37457678
+  m_Pitch: 0.2648658
   Loop: 0
   Mute: 0
   Spatialize: 0
