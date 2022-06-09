@@ -5566,6 +5566,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 878432803}
     - target: {fileID: 1036943578576286083, guid: 5de5d34da43ec48919f969412fa169f8, type: 3}
+      propertyPath: _localAvatarPrefab
+      value: 
+      objectReference: {fileID: 1435502846325602, guid: d488436abb9dc4c6ea6095c953e5f1e8, type: 3}
+    - target: {fileID: 1036943578576286083, guid: 5de5d34da43ec48919f969412fa169f8, type: 3}
       propertyPath: _localPlayer.leftHand
       value: 
       objectReference: {fileID: 692284116}
@@ -6923,6 +6927,42 @@ Transform:
   m_Father: {fileID: 807130160}
   m_RootOrder: 150
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &401509930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1730101198947080957, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+  m_PrefabInstance: {fileID: 1103951732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &401509931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401509930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9441d5450817c342a45e4b8dd66de6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showEditorMainBehavior: 1
+  showEditorBloomBehavior: 1
+  showEditorLensSurfaceBehavior: 0
+  debugView: 0
+  workflow: 0
+  selectiveRenderLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  anamorphicRatio: 0
+  bloomThreshold:
+    minValue: 0.5941087
+    maxValue: 10
+  bloomScattering: 7
+  bloomIntensity: 1
+  allowLensSurface: 0
+  lensSurfaceDirtTexture: {fileID: 0}
+  lensSurfaceDirtIntensity: 2.5
+  lensSurfaceDiffractionTexture: {fileID: 0}
+  lensSurfaceDiffractionIntensity: 2
 --- !u!1 &403227368
 GameObject:
   m_ObjectHideFlags: 0
@@ -8867,34 +8907,6 @@ Transform:
   m_Father: {fileID: 807130160}
   m_RootOrder: 394
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!83 &510272514
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: helm
-  m_LoadType: 0
-  m_Channels: 1
-  m_Frequency: 44100
-  m_BitsPerSample: 32
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
 --- !u!1 &510663422
 GameObject:
   m_ObjectHideFlags: 0
@@ -10034,7 +10046,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1424247668923178599, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
   m_PrefabInstance: {fileID: 1103951732}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 401509930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
@@ -10055,6 +10067,10 @@ PrefabInstance:
     - target: {fileID: 1000013823764470, guid: e8c2ddbd2999544428e9799ccc8951ab, type: 3}
       propertyPath: m_Name
       value: DrumKit01Sequencer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013823764470, guid: e8c2ddbd2999544428e9799ccc8951ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000012309939166, guid: e8c2ddbd2999544428e9799ccc8951ab, type: 3}
       propertyPath: m_RootOrder
@@ -10985,7 +11001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &610943229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11012,7 +11028,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24328744, guid: bacf39976fc5f47e0a14b844e84f9cf4, type: 2}
-  m_audioClip: {fileID: 510272514}
+  m_audioClip: {fileID: 645940416}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -12080,6 +12096,34 @@ Transform:
   m_Father: {fileID: 807130160}
   m_RootOrder: 353
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!83 &645940416
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 44100
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!1 &646909700
 GameObject:
   m_ObjectHideFlags: 0
@@ -20652,6 +20696,22 @@ PrefabInstance:
       propertyPath: HmdPoseDriver
       value: 
       objectReference: {fileID: 568301837}
+    - target: {fileID: 3884827878874753373, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884827878874753373, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884827878874753373, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884827878874753373, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7395794454535882733, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -20699,6 +20759,14 @@ PrefabInstance:
     - target: {fileID: 7399438668049765883, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
       propertyPath: m_Name
       value: VRInputRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989826309415950857, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988248227103191861, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d7e8c149ba07e4284788aab6574a50, type: 3}
@@ -32892,7 +32960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000011684079528, guid: e6895ec1c238cfd46a74fb6b01af5d52, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000013089952384, guid: e6895ec1c238cfd46a74fb6b01af5d52, type: 3}
       propertyPath: m_RootOrder
@@ -32942,6 +33010,10 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 0.9438743
       objectReference: {fileID: 0}
+    - target: {fileID: 82000012162780602, guid: e6895ec1c238cfd46a74fb6b01af5d52, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5265805252805663266, guid: dcc646d6cee7042dd9b786333ae31c37, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6895ec1c238cfd46a74fb6b01af5d52, type: 3}
 --- !u!1 &1817089534 stripped
@@ -35906,7 +35978,7 @@ MonoBehaviour:
   floorMatOff: {fileID: 2100000, guid: ca7d38cfe54cb2841be8967c4116f36d, type: 2}
   floorMatOn: {fileID: 2100000, guid: 2e1c0c0985af240f58642ba72866eaae, type: 2}
   floorTiles: {fileID: 807130161}
-  sequencer: {fileID: 610943231}
+  sequencer: {fileID: 1817089535}
   baseNote: 48
   length: 4
   avatars: []
