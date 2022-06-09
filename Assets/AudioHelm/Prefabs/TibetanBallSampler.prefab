@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyzones:
   - audioClip: {fileID: 8300000, guid: 7473e27e47d6dbb4893ee93992c19330, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: -5265805252805663266, guid: dcc646d6cee7042dd9b786333ae31c37, type: 2}
     rootKey: 76
     minKey: 0
     maxKey: 127
@@ -66,7 +66,7 @@ AudioSource:
   m_GameObject: {fileID: 1000011684079528}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5265805252805663266, guid: dcc646d6cee7042dd9b786333ae31c37, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7473e27e47d6dbb4893ee93992c19330, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
