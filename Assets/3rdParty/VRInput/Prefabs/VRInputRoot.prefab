@@ -285,14 +285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecee707f4e40c1c43bd477406e45a2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Network: {fileID: 0}
-  Environment: {fileID: 0}
-  ExtrapolationTime: 0
+  Network: {fileID: 4833321897097816204}
+  Environment: {fileID: 6907173549360835386}
+  ExtrapolationTime: 0.02
   TrackingTaskStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  XRCamera: {fileID: 0}
-  HmdPoseDriver: {fileID: 0}
+  XRCamera: {fileID: 3884827878874753373}
+  HmdPoseDriver: {fileID: 1424247668923178599}
 --- !u!1 &7399438668049765883
 GameObject:
   m_ObjectHideFlags: 0

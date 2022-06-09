@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ToyBoxHHH;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -16,21 +17,36 @@ public class FloorTiles : MonoBehaviour
     private static readonly int DistMulti = Shader.PropertyToID("_DistMulti");
     private static readonly int Tint = Shader.PropertyToID("_Tint");
 
+    [System.Serializable]
+    public class Row
+    {
+        public List<GameObject> tiles;
+    }
+    public List<Row> rows = new List<Row>();
 
     [DebugButton]
     private void Start()
     {
         GameObject tile = transform.GetChild(0).gameObject;
 
+        
         for (int x = 0; x < 16; x++)
-        for (int z = 0; z < 28; z++)
         {
-            GameObject newTile = Instantiate(tile, transform);
+            List<GameObject> row = new List<GameObject>();
+            for (int z = 0; z < 28; z++)
+            {
+                GameObject newTile = Instantiate(tile, transform);
 
-            newTile.transform.localRotation = Quaternion.AngleAxis(Random.Range(0, 4) * 90, Vector3.up);
-            newTile.transform.localPosition =
-                new Vector3(x, Random.Range(-.005f, 0), z) * .6f + new Vector3(-7.5f, 0, -13.5f) * .6f;
-            newTile.transform.localScale = new Vector3(1, .75f, 1);
+                newTile.transform.localRotation = Quaternion.AngleAxis(Random.Range(0, 4) * 90, Vector3.up);
+                newTile.transform.localPosition =
+                    new Vector3(x, Random.Range(-.005f, 0), z) * .6f + new Vector3(-7.5f, 0, -13.5f) * .6f;
+                newTile.transform.localScale = new Vector3(1, .75f, 1);
+                
+                row.Add(newTile);
+                
+            }
+            rows.Add(new Row(){tiles = row});
+            
         }
 
         tile.SetActive(false);
