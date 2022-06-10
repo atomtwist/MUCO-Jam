@@ -24,17 +24,18 @@ public class TiltFloorGame : MonoBehaviour
         if (!NetworkManager.Instance.realtime.connected)
             return;
         
-        if (realtimeTransform.isOwnedLocallySelf)
-        {
-            // add froces for all plaeyrs
-            for (int i = 0; i < NetworkManager.Instance.avatarManager.avatars.Count; i++)
+        if (rb != null)
+            if (realtimeTransform.isOwnedLocallySelf)
             {
-                var a = NetworkManager.Instance.avatarManager.avatars[i];
-                rb.AddForceAtPosition(Vector3.down * playerAddForceFromHead, a.head.position);
-
+                // add froces for all plaeyrs
+                for (int i = 0; i < NetworkManager.Instance.avatarManager.avatars.Count; i++)
+                {
+                    var a = NetworkManager.Instance.avatarManager.avatars[i];
+                    rb.AddForceAtPosition(Vector3.down * playerAddForceFromHead, a.head.position);
+                }
             }
-            
-        }
+                
+
 
         // set player on floor....?E?E!
         var floorHeightUnderHead = 0f;

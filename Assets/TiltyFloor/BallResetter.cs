@@ -17,8 +17,8 @@ public class BallResetter : MonoBehaviour
         if (VRInput.Get(Hand.Primary).GetPressDown(Button.ButtonOne))
         {
             realtimeTransform.RequestOwnership();
-            transform.position = restartPos.position;
-            transform.rotation = restartPos.rotation;
+            rb.position = restartPos.position;
+            rb.rotation = restartPos.rotation;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             

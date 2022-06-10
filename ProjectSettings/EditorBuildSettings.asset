@@ -6,20 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Packages/com.phenomenalviborg.mucosdk/Runtime/Framework/Shared/S_Entry.unity
-    guid: 56e02c62280735f498837d0300d094b1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Packages/com.phenomenalviborg.mucosdk/Runtime/Framework/Shared/S_Menu.unity
-    guid: a86ed2feecd8a41498e8dff9b45195b5
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/GreatFunk/S_GreatFunk.unity
     guid: c49f16212d42e4a819dd63518f679a62
   - enabled: 0
     path: Assets/S_Menu 1.unity
     guid: be2abe5fc4ca64ff587a2c53fd805b0a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Milan/SynthCommander/SynthCommander.unity
     guid: 8497abd56d9454b758957aee70716ea9
+  - enabled: 0
+    path: Assets/TiltyFloor/TiltyFloor.unity
+    guid: 6292e1eba4b9c4e589247944e4385cce
+  - enabled: 1
+    path: Assets/TiltyFloor/StaticTiltyFloor.unity
+    guid: 8427871604862424f99c73e7a42ece66
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 71e2be9e267cd4ea596b851d282eb4b0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3ce68de38ddfc46559ddb8ed862f1d18, type: 2}
