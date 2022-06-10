@@ -23,9 +23,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/TiltyFloor/TiltyFloor.unity
     guid: 6292e1eba4b9c4e589247944e4385cce
-  - enabled: 1
+  - enabled: 0
     path: Assets/TiltyFloor/StaticTiltyFloor.unity
     guid: 8427871604862424f99c73e7a42ece66
+  - enabled: 1
+    path: Assets/tracking experiments/Alt-only camera tracking, no oculus.unity
+    guid: 78547909ed3534729a25ceaf397de035
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 71e2be9e267cd4ea596b851d282eb4b0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3ce68de38ddfc46559ddb8ed862f1d18, type: 2}

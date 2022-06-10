@@ -2375,14 +2375,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052686832}
     m_Modifications:
-    - target: {fileID: 884432178859186620, guid: d5a5284eb295d4bddabc24f02cacc419, type: 3}
-      propertyPath: grabToolLeft
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 884432178859186620, guid: d5a5284eb295d4bddabc24f02cacc419, type: 3}
-      propertyPath: grabToolRight
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7378065315233910749, guid: d5a5284eb295d4bddabc24f02cacc419, type: 3}
       propertyPath: m_Name
       value: VRInputRoot TiltyFloor
@@ -2429,10 +2421,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7383390784301227467, guid: d5a5284eb295d4bddabc24f02cacc419, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7941431234214641711, guid: d5a5284eb295d4bddabc24f02cacc419, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
