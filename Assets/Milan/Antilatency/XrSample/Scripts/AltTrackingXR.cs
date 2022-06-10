@@ -28,6 +28,7 @@ public class AltTrackingXR : AltTracking
 
     protected override Pose GetPlacement()
     {
+        return _trackingLibrary.createPlacement("AAAAAAAGgRW9C0alPR_JKT4AAAAA2w_JPw");
         var result = Pose.identity;
 
         using (var localStorage = Antilatency.SDK.StorageClient.GetLocalStorage())
