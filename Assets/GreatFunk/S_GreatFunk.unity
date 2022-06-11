@@ -21640,6 +21640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 6923580371035836726}
   tintColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
+  rows: []
 --- !u!1001 &2323945019230612248
 PrefabInstance:
   m_ObjectHideFlags: 0
