@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127050587523815583}
-  - component: {fileID: 2127050587523815582}
+  - component: {fileID: 5928716031076018026}
   m_Layer: 0
   m_Name: FloorTiles
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2127050587523815582
+--- !u!114 &5928716031076018026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2127050587523815576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162b7f04fd03f794fa3a2250517eaf8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 45f5305dd9ed54c589cc89fad0b0a841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2127050587523815583}
-  tintColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
-  tintAmount: 1
+  tintColor: {r: 0.41509432, g: 0.40530434, b: 0.40530434, a: 0}
+  rows: []
 --- !u!1001 &2127050587792065734
 PrefabInstance:
   m_ObjectHideFlags: 0
