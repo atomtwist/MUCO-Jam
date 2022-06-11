@@ -9,8 +9,6 @@ public class SchnowGrow : MonoBehaviour
 {
     private HashSet<Transform> floor = new HashSet<Transform>();
 
-    public GameObject terrain => SnowTerrain.instance.gameObject;
-
     public Rigidbody rb;
     public float maxSpeed = 10f;
     public float growthRate = 1f;
@@ -18,32 +16,42 @@ public class SchnowGrow : MonoBehaviour
     public float maxScale = 2f;
 
     [Space] public float destroyVel = 10f;
+    public float destroyVelHead = 10f;
 
     public GameObject particleEffectOnDestroy;
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject == terrain)
+        var didHitVelThreshold = false;
+
+
+        // if we hit terrain
+        if (other.gameObject.GetComponentInParent<SnowTerrain>())
         {
             floor.Add(other.transform);
-        }
-        
 
-        // if vel > destroy limit
-        // DESTROY\111
-        // WITH PARTICLES N SOUND
-        if (other.relativeVelocity.magnitude > destroyVel)
+            // if velocity, destroy.
+            if (other.relativeVelocity.magnitude > destroyVel)
+                didHitVelThreshold = true;
+        }
+
+        var ff = other.gameObject.GetComponent<FlashOnFaceHit>();
+        if (ff != null)
+        {
+            if (other.relativeVelocity.magnitude > destroyVelHead)
+            {
+                didHitVelThreshold = true;
+                // we hit velocity thershold on face. do a face flash.
+                ff.FlashIt();
+            }
+        }
+
+        if (didHitVelThreshold)
         {
             if (particleEffectOnDestroy != null)
             {
                 var pp = Instantiate(particleEffectOnDestroy, transform.position, transform.rotation, null);
                 pp.transform.localScale = transform.localScale;
-            }
-
-            var ff = other.gameObject.GetComponent<FlashOnFaceHit>();
-            if (ff!=null)
-            {
-                ff.FlashIt();
             }
 
             Realtime.Destroy(gameObject);
@@ -52,7 +60,7 @@ public class SchnowGrow : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.gameObject == terrain)
+        if (other.gameObject.GetComponentInParent<SnowTerrain>())
         {
             floor.Remove(other.transform);
         }

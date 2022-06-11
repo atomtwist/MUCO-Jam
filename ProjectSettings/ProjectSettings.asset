@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: com.nvrmind.synth
-  productName: SkiGame
+  companyName: DefaultCompany
+  productName: HOUSE ROOFIES
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -154,7 +154,6 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 43d4909a5346e42ff928ef6aece1f9d1, type: 2}
   - {fileID: 4251463794757295450, guid: 3ce68de38ddfc46559ddb8ed862f1d18, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -173,7 +172,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.com.nvrmind.synth.SkiGame
+    Android: com.DefaultCompany.HOUSEROOFIES
   buildNumber:
     Standalone: 0
     iPhone: 0
