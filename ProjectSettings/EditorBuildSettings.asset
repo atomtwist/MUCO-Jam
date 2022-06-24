@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/S_Menu 1.unity
     guid: be2abe5fc4ca64ff587a2c53fd805b0a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Milan/SynthCommander/SynthCommander.unity
     guid: 8497abd56d9454b758957aee70716ea9
   - enabled: 0
