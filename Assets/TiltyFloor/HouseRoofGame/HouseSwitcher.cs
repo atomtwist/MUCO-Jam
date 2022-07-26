@@ -15,7 +15,7 @@ public class HouseSwitcher : MonoBehaviour
     {
         if (VRInput.Get(Hand.Primary).GetPressDown(Button.ButtonOne))
         {
-            GoToNextPlace();
+            GoToNextPlace(); 
         }
     }
 
