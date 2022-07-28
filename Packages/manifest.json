@@ -11,6 +11,7 @@
     "com.unity.timeline": "1.4.8",
     "com.unity.ugui": "1.0.0",
     "com.unity.xr.management": "4.2.1",
+    "com.unity.xr.oculus": "1.12.1",
     "com.unity.xr.openxr": "1.3.1",
     "horatiu665.toybox": "https://github.com/horatiu665/toybox.git",
     "com.unity.modules.ai": "1.0.0",
